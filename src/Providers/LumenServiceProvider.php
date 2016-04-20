@@ -2,7 +2,7 @@
 
 namespace Twine\Raven\Providers;
 
-class LaravelServiceProvider extends AbstractServiceProvider
+class LumenServiceProvider extends AbstractServiceProvider
 {
     /**
      * Bootstrap the application events.
