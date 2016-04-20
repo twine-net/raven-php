@@ -1,5 +1,5 @@
 {
-    "name": "twine/raven-php",
+    "name": "twineis/raven-php",
     "description": "Sentry (Raven) error monitoring for Laravel and Lumen with send in background via queues",
     "keywords": ["laravel", "sentry", "getsentry", "raven", "monitoring", "error", "logging"],
     "license": "MIT",

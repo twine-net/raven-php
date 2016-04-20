@@ -16,14 +16,10 @@ Sentry (Raven) error monitoring for Laravel and Lumen with send in background vi
 
 ## Installation
 
-Add the package to your `composer.json` and run `composer update`.
+Install the latest version with:
 
-```js
-{
-    "require": {
-        "twineis/raven-php": "dev-master"
-    }
-}
+```bash
+$ composer require twineis/raven-php
 ```
 
 For Laravel add the service provider in `config/app.php`:
