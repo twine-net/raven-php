@@ -40,7 +40,7 @@ class Client extends Raven_Client
             [
                 'tags' => [
                     'environment' => $env,
-                    'logger' => 'laravel-raven',
+                    'logger' => 'raven-php',
                 ],
             ],
             array_get($config, 'options', [])
