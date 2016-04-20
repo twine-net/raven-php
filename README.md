@@ -96,8 +96,6 @@ Log::error('Oops, Something went wrong', [
 ]);
 ```
 
-User data can alternatively be added to the context of any messages sent via a processor, such as the included `UserDataProcessor`; see below.
-
 ## Credits
 
 This package was inspired [rcrowe/Raven](https://github.com/rcrowe/Raven).
