@@ -11,14 +11,14 @@ class LumenServiceProvider extends AbstractServiceProvider
      */
     public function boot()
     {
-        if (empty($this->app['config']['raven.dsn'])) {
-            return;
-        }
-
         $path = $this->getPath();
 
         $this->app->configure('raven');
         $this->mergeConfigFrom($path, 'raven');
+
+        if (empty($this->app['config']['raven.dsn'])) {
+            return;
+        }
 
         $handler = $this->getHandler();
 

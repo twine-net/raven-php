@@ -28,7 +28,7 @@ abstract class AbstractServiceProvider extends ServiceProvider
      */
     protected function getPath()
     {
-        return realpath(__DIR__.'/config/config.php');
+        return realpath(__DIR__.'/../config/config.php');
     }
 
     /**
