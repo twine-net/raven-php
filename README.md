@@ -3,9 +3,9 @@ Raven PHP
 
 > Sentry (Raven) error monitoring for Laravel and Lumen with send in background via queues
 
-[![Build Status](http://img.shields.io/travis/twineis/raven-php/master.svg?style=flat-square)](https://travis-ci.org/twineis/raven-php)
+<!-- [![Build Status](http://img.shields.io/travis/twineis/raven-php/master.svg?style=flat-square)](https://travis-ci.org/twineis/raven-php)
 [![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/twineis/raven-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/twineis/raven-php/)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/twineis/raven-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/twineis/raven-php/code-structure/master)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/twineis/raven-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/twineis/raven-php/code-structure/master) -->
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](http://www.opensource.org/licenses/MIT)
 [![Latest Version](http://img.shields.io/packagist/v/twineis/raven-php.svg?style=flat-square)](https://packagist.org/packages/twineis/raven-php)
 [![Total Downloads](https://img.shields.io/packagist/dt/twineis/raven-php.svg?style=flat-square)](https://packagist.org/packages/twineis/raven-php)
