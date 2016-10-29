@@ -14,7 +14,7 @@
         "illuminate/support": "~5",
         "illuminate/queue": "~5",
         "monolog/monolog": "~1.11",
-        "sentry/sentry": "~0.19"
+        "sentry/sentry": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
