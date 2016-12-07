@@ -40,6 +40,25 @@ abstract class AbstractServiceProvider extends ServiceProvider
     {
         $handler = new RavenHandler($this->app[Client::class], $this->app['config']['raven.level']);
         $handler->setFormatter(new LineFormatter("%message% %context% %extra%\n"));
+        
+        // Add processors
+        $processors = $this->app['config']['raven.monolog.processors'] ?: [];
+
+        if (is_array($processors)) {
+            foreach ($processors as $process) {
+                // Get callable
+                if (is_callable($process)) {
+                    $callable = $process;
+                } elseif (is_string($process)) {
+                    $callable = new $process();
+                } else {
+                    throw new \Exception('Raven: Invalid processor');
+                }
+
+                // Add processor to Raven handler
+                $handler->pushProcessor($callable);
+            }
+        }
 
         return $handler;
     }
