@@ -62,7 +62,7 @@ class Client extends Raven_Client
     /**
      * {@inheritdoc}
      */
-    public function send($data)
+    public function send(&$data)
     {
         $this->eventId = array_get($data, 'event_id');
 
