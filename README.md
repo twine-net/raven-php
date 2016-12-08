@@ -75,20 +75,22 @@ Log::error($exception->getMessage(), ['exception' => $exception]);
 This can be done in the ```report``` method in ```app/Exceptions/Handler.php```
 
 ```php
-    /**
-     * Report or log an exception.
-     *
-     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
-     *
-     * @param  \Exception  $e
-     * @return void
-     */
-    public function report(Exception $e)
-    {
+/**
+ * Report or log an exception.
+ *
+ * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+ *
+ * @param  \Exception  $e
+ * @return void
+ */
+public function report(Exception $e)
+{
+    if ($this->shouldReport($e)) {
         \Log::error($e->getMessage(), ['exception' => $e]);
-
-        return parent::report($e);
     }
+
+    return parent::report($e);
+}
 ```
 
 You can change the logs used by changing the log level in the config by modifying the env var.
