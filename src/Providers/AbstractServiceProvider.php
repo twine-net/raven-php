@@ -39,7 +39,7 @@ abstract class AbstractServiceProvider extends ServiceProvider
     protected function getHandler()
     {
         $handler = new RavenHandler($this->app[Client::class], $this->app['config']['raven.level']);
-        $handler->setFormatter(new LineFormatter("%message% %context% %extra%\n"));
+        $handler->setFormatter(new LineFormatter('%message%'));
         
         // Add processors
         $processors = $this->app['config']['raven.monolog.processors'] ?: [];
