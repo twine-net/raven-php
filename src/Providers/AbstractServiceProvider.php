@@ -35,20 +35,6 @@ abstract class AbstractServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get Monolog logger.
-     *
-     * @return Monolog\Logger
-     */
-    protected function getLogger()
-    {
-        return new Logger(
-            $this->app['log']->getName(),
-            $this->app['log']->getHandlers(),
-            $this->app['log']->getProcessors()
-        );
-    }
-
-    /**
      * Get Raven Monolog handler.
      *
      * @return Monolog\Handler\RavenHandler

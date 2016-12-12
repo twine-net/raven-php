@@ -34,8 +34,14 @@ class LaravelServiceProvider extends AbstractServiceProvider
      */
     protected function registerLogger()
     {
+        $logger = new Logger(
+            $this->app['log']->getMonolog()->getName(),
+            $this->app['log']->getMonolog()->getHandlers(),
+            $this->app['log']->getMonolog()->getProcessors()
+        );
+
         $this->app->instance('log', new Writer(
-            $this->getLogger(),
+            $logger,
             $this->app['log']->getEventDispatcher()
         ));
     }

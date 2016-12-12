@@ -32,7 +32,11 @@ class LumenServiceProvider extends AbstractServiceProvider
      */
     protected function registerLogger()
     {
-        $logger = $this->getLogger();
+        $logger = new Logger(
+            $this->app['log']->getName(),
+            $this->app['log']->getHandlers(),
+            $this->app['log']->getProcessors()
+        );
 
         $this->app->singleton('Psr\Log\LoggerInterface', function () use ($logger) {
             return $logger;
