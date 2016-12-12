@@ -24,4 +24,20 @@ class LumenServiceProvider extends AbstractServiceProvider
 
         $this->app['log']->pushHandler($handler);
     }
+
+    /**
+     * Register the logger instance in the container.
+     *
+     * @return void
+     */
+    protected function registerLogger()
+    {
+        $logger = $this->getLogger();
+
+        $this->app->singleton('Psr\Log\LoggerInterface', function () use ($logger) {
+            return $logger;
+        });
+
+        $this->app->instance('log', $logger);
+    }
 }

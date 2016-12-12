@@ -2,6 +2,8 @@
 
 namespace Twine\Raven\Providers;
 
+use Illuminate\Log\Writer;
+
 class LaravelServiceProvider extends AbstractServiceProvider
 {
     /**
@@ -23,5 +25,18 @@ class LaravelServiceProvider extends AbstractServiceProvider
         $handler = $this->getHandler();
 
         $this->app['log']->getMonolog()->pushHandler($handler);
+    }
+
+    /**
+     * Register the logger instance in the container.
+     *
+     * @return void
+     */
+    protected function registerLogger()
+    {
+        $this->app->instance('log', new Writer(
+            $this->getLogger(),
+            $this->app['log']->getEventDispatcher()
+        ));
     }
 }

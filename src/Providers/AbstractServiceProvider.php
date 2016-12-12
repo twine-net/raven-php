@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RavenHandler;
 use Twine\Raven\Client;
+use Twine\Raven\Logger;
 
 abstract class AbstractServiceProvider extends ServiceProvider
 {
@@ -19,12 +20,14 @@ abstract class AbstractServiceProvider extends ServiceProvider
         $this->app[Client::class] = $this->app->share(function ($app) {
             return new Client($app['config']['raven'], $app['queue'], $app->environment());
         });
+
+        $this->registerLogger();
     }
 
     /**
      * Get path to config.
      *
-     * @return string 
+     * @return string
      */
     protected function getPath()
     {
@@ -32,9 +35,23 @@ abstract class AbstractServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get Raven monolog handler.
+     * Get Monolog logger.
      *
-     * @return RavenHandler
+     * @return Monolog\Logger
+     */
+    protected function getLogger()
+    {
+        return new Logger(
+            $this->app['log']->getName(),
+            $this->app['log']->getHandlers(),
+            $this->app['log']->getProcessors()
+        );
+    }
+
+    /**
+     * Get Raven Monolog handler.
+     *
+     * @return Monolog\Handler\RavenHandler
      */
     protected function getHandler()
     {
