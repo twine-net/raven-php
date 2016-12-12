@@ -2,6 +2,9 @@
 
 namespace Twine\Raven\Providers;
 
+use Psr\Log\LoggerInterface;
+use Twine\Raven\Logger;
+
 class LumenServiceProvider extends AbstractServiceProvider
 {
     /**
@@ -38,7 +41,7 @@ class LumenServiceProvider extends AbstractServiceProvider
             $this->app['log']->getProcessors()
         );
 
-        $this->app->singleton('Psr\Log\LoggerInterface', function () use ($logger) {
+        $this->app->singleton(LoggerInterface::class, function () use ($logger) {
             return $logger;
         });
 

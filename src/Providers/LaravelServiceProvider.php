@@ -3,6 +3,7 @@
 namespace Twine\Raven\Providers;
 
 use Illuminate\Log\Writer;
+use Twine\Raven\Logger;
 
 class LaravelServiceProvider extends AbstractServiceProvider
 {

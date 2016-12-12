@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RavenHandler;
 use Twine\Raven\Client;
-use Twine\Raven\Logger;
 
 abstract class AbstractServiceProvider extends ServiceProvider
 {
