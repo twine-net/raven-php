@@ -69,28 +69,11 @@ If the job fails to add into the queue, it will be sent directly to sentry, slow
 To monitor exceptions, simply use the `Log` facade or helper:
 
 ```php
-Log::error($exception->getMessage(), ['exception' => $exception]);
-```
+Log::error($exception);
 
-This can be done in the ```report``` method in ```app/Exceptions/Handler.php```
+// or
 
-```php
-/**
- * Report or log an exception.
- *
- * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
- *
- * @param  \Exception  $e
- * @return void
- */
-public function report(Exception $e)
-{
-    if ($this->shouldReport($e)) {
-        \Log::error($e->getMessage(), ['exception' => $e]);
-    }
-
-    return parent::report($e);
-}
+app('log')->error($exception);
 ```
 
 You can change the logs used by changing the log level in the config by modifying the env var.

@@ -19,12 +19,14 @@ abstract class AbstractServiceProvider extends ServiceProvider
         $this->app[Client::class] = $this->app->share(function ($app) {
             return new Client($app['config']['raven'], $app['queue'], $app->environment());
         });
+
+        $this->registerLogger();
     }
 
     /**
      * Get path to config.
      *
-     * @return string 
+     * @return string
      */
     protected function getPath()
     {
@@ -32,9 +34,9 @@ abstract class AbstractServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get Raven monolog handler.
+     * Get Raven Monolog handler.
      *
-     * @return RavenHandler
+     * @return Monolog\Handler\RavenHandler
      */
     protected function getHandler()
     {
