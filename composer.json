@@ -13,7 +13,7 @@
         "php": ">=5.5.9",
         "illuminate/support": "~5",
         "illuminate/queue": "~5",
-        "monolog/monolog": "~1.11 <1.22",
+        "monolog/monolog": "~1.11 <=1.22",
         "sentry/sentry": "^1.0"
     },
     "require-dev": {
