@@ -16,7 +16,7 @@ abstract class AbstractServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app[Client::class] = $this->app->share(function ($app) {
+        $this->app->singleton(Client::class, function ($app) {
             return new Client($app['config']['raven'], $app['queue'], $app->environment());
         });
 
@@ -42,7 +42,7 @@ abstract class AbstractServiceProvider extends ServiceProvider
     {
         $handler = new RavenHandler($this->app[Client::class], $this->app['config']['raven.level']);
         $handler->setFormatter(new LineFormatter('%message%'));
-        
+
         // Add processors
         $processors = $this->app['config']['raven.monolog.processors'] ?: [];
 
